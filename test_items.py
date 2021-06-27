@@ -1,10 +1,11 @@
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from time import sleep
 
 link =' http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
 
-def test_add_bucket_button(browser):
+
+def test_add_busket_button(browser):
     browser.get(link)
-    WebDriverWait(browser, 3).until(
-		EC.visibility_of_element_located((By.CLASS_NAME, "btn-add-to-basket")), "No add to cart button on page")
+    #sleep(30)
+    add_basket=browser.find_element_by_css_selector(".btn-add-to-basket")
+    assert add_basket, 'No add button on page'
